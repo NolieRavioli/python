@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Nolan Peet">
+    <meta name="description" content="nolanpeet.us - AWS RESTful framework. Powered by Python.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Welcome to nolanpeet.us!</title>
+    <style type="text/css">
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: "Times New Roman", serif;
+        }
+        h1 {
+          font-size: 3rem;
+          font-weight: 300;
+          margin: 0;
+          padding-top: 1rem;
+          text-align: center;
+        }
+        h2 {
+          font-weight: normal;
+          padding-left: 3rem;
+          margin: 0.3rem 0;
+        }
+        h3 {
+          padding-left: 1rem;
+        }
+        p {
+          margin: 0;
+          padding: 0 3rem;
+        }
+        code {
+          display: inline-block;
+          white-space: pre-wrap;
+          font-family: "Courier New", Courier, monospace;
+          border-radius: 0;
+          border: 1px solid #000;
+          margin-left: 1rem;
+          margin-top: 0.1rem;
+          margin-right: 1rem;
+          padding: 15px;
+        }
+        #eponymous {
+          background-color: #135d63;
+          color: white;
+          padding: 0 0;
+        }
+        .tabs {
+          display: inline-flex;
+          background-color: #dbdbdb;
+          margin-top: 0.5rem;
+          margin-left: 1rem;
+          margin-bottom: 0;
+        }
+        .tabs a {
+            font-size: 1.3rem;
+            font-family: "Courier New", Courier, monospace;
+            color: #0073bb;
+            text-decoration: underline;
+            font-weight: bold;
+            border: 1px solid #000;
+            padding: 5px;
+            margin-bottom: 0;
+        }
+        .tabs a:hover {
+          background-color: #b1b1b1bd;
+        }
+        #top {
+          background-color: #083270;
+          color: white;
+          text-align: left;
+          padding: 1rem 0;
+          
+        }
+        #bottom {
+          background-color: #d5dbdb;
+          padding: 0.01rem 0;
+        }
+        #footer {
+          background-color: #97cde25b;
+          padding-left:0.5rem;
+          padding-bottom:0.5rem;
+        }
+    .textPost {
+        display: block;
+        margin: 2rem;
+        border: 1px solid #000;
+        padding: 1rem;
+    }
+    .textPost p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 0.5rem;
+        padding-right: 10px;
+        padding-top: 0rem;
+    }
+    .list {
+        display: inline-block;
+        margin-left:2rem;
+        margin-top:1rem;
+        padding-right: 1rem;
+        padding-left: 0.5rem;
+        border-radius: 0px;
+        border: 2px solid #000;
+    }
+    .list ul {
+        list-style: circle;
+    }
+    .done {
+        text-decoration: line-through;
+    }
+    .urls {
+        font-family: "Courier New", Courier, monospace;
+    }
+    </style>
+</head>
+<body>
+    <div id="eponymous">
+    <h1>Welcome to my website!</h1>
+    <h2 style="display: inline-block;">nolanpeet@gmail.com | Lakewood, CO</h2>
+    <div class="tabs">
+        <a href="https://nolanpeet.us">Home</a>
+        <a href="https://cpu1.nolp.net/temp" target="_blank" rel="noopener noreferrer">Tempurature Monitor</a>
+        <a href="https://nolanpeet.us/about">About</a>
+        <a href="https://nolanpeet.us/post">New Post</a>
+      </div>
+    </div>
+    <div id="top" class="section"><b>
+      <p>Welcome to my website, look around if you like. This is a serverless website. I build this all by hand.</p>
+      <p>This is an aws free tier thing. It uses api gateway and lambda to create a RESTful website powered by python. AWS provides a framework for load-balancing cloud resources and my self-hosted endpoints.</p></b>
+      <div class="list">
+        <p>TODO:</p>
+        <ul>
+          <!-- TODO LIST -->
+          <li class="done">Self-Hosted VM Stack</li>
+          <li class="done">Temp Monitoring Project</li>
+          <li>ShinobiCCTV POE Camera Project</li>
+        </ul>
+      </div>
+    </div>
+    <div id="bottom" class="section">
+      <h3>I appreciate programming the frameworks and data structures for my projects. I have a lot of experience with building full stacks in Python, JavaScript, PHP, and basic AWS.</h3>
+      <h3 style="padding-left: 3rem;">The following are some programs I've made:</h3>
+      <!-- NEW ENTRIES HERE 
+      <div id="textPost">
+        <p></p>
+      </div> -->
+
+      <div class="textPost" style="position: relative; padding-bottom: 1.2em;">
+        <p>I made a way to create new posts here that are formatted and dated and things. its quite late at night now so I think Im done for the night.</p>
+        <code>    &lt;script&gt;<br>      // Save the original login form HTML to allow resetting later.<br>      const originalLoginHTML = document.getElementById(&quot;login&quot;).innerHTML;<br>    <br>      function prettyPrintHTML(rawHtml) {<br>        let indent = 0;<br>        const indentSize = 2;<br>        return rawHtml<br>          .replace(/&gt;&lt;/g, &#x27;&gt;\n&lt;&#x27;).split(&#x27;\n&#x27;)<br>          .map(line =&gt; {<br>            line = line.trim();<br>            if (line.match(/^&lt;\/\w/)) {<br>              indent = Math.max(indent - indentSize, 0);<br>            }<br>            const result = &#x27; &#x27;.repeat(indent) + line;<br>            if (line.match(/^&lt;\w[^&gt;]*[^/]&gt;$/)) {<br>              indent += indentSize;<br>            }<br>            return result;<br>          }).join(&#x27;\n&#x27;);<br>      }<br>    <br>      // When username or password gets focus, select all text.<br>      document.getElementById(&quot;user&quot;).addEventListener(&quot;focus&quot;, function(e) {<br>        e.target.select();<br>      });<br>      document.getElementById(&quot;pass&quot;).addEventListener(&quot;focus&quot;, function(e) {<br>        e.target.select();<br>      });<br>    <br>      // When pressing Enter in username or password, trigger login()<br>      [&quot;user&quot;, &quot;pass&quot;].forEach(id =&gt; {<br>        document.getElementById(id).addEventListener(&quot;keydown&quot;, function(e) {<br>          if (e.key === &quot;Enter&quot;) {<br>            e.preventDefault();<br>            login();<br>          }<br>        });<br>      });<br>    <br>      // Attach event listener to the Submit button<br>      document.getElementById(&#x27;go&#x27;).addEventListener(&#x27;click&#x27;, function(e) {<br>        e.preventDefault();<br>        login();<br>      });<br>    <br>      function login() {<br>        const content  = document.getElementById(&#x27;post&#x27;).value;<br>        const username = document.getElementById(&#x27;user&#x27;).value;<br>        const password = document.getElementById(&#x27;pass&#x27;).value;<br>    <br>        fetch(&quot;https://nolanpeet.us/login/auth&quot;, {<br>          method: &#x27;POST&#x27;,<br>          headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27; },<br>          body: JSON.stringify({ username, password, content })<br>        })<br>        .then(response =&gt; {<br>          if (!response.ok) {<br>            throw new Error(&quot;HTTP error &quot; + response.status);<br>          }<br>          return response.text();<br>        })<br>        .then(htmlString =&gt; {<br>          // Pretty-print, then escape the HTML so it&#x27;s displayed as code<br>          const pretty = prettyPrintHTML(htmlString);<br>          const escaped = pretty<br>            .replace(/&amp;/g, &quot;&amp;amp;&quot;)<br>            .replace(/&lt;/g, &quot;&amp;lt;&quot;)<br>            .replace(/&gt;/g, &quot;&amp;gt;&quot;);<br>    <br>          // Display the escaped raw HTML in a pre/code block along with a Reset button<br>          document.getElementById(&quot;login&quot;).innerHTML = `&lt;pre id=&quot;login&quot;&gt;&lt;code&gt;${escaped}&lt;/code&gt;&lt;/pre&gt;&lt;button id=&quot;resetBtn&quot;&gt;Reset Form&lt;/button&gt;`;<br>    <br>          // Add click listener to the reset button to restore the original form<br>          document.getElementById(&quot;resetBtn&quot;).addEventListener(&quot;click&quot;, function() {<br>            document.getElementById(&quot;login&quot;).innerHTML = originalLoginHTML;<br>            // Reattach event listeners for focus, keydown, and click to the new inputs and button:<br>            attachInputListeners();<br>          });<br>        })<br>        .catch(error =&gt; {<br>          console.error(&quot;Error during login:&quot;, error);<br>        });<br>      }<br>    <br>      // Function to reattach event listeners after resetting the form<br>      function attachInputListeners() {<br>        const userInput = document.getElementById(&quot;user&quot;);<br>        const passInput = document.getElementById(&quot;pass&quot;);<br>        userInput.addEventListener(&quot;focus&quot;, function(e) {<br>          e.target.select();<br>        });<br>        passInput.addEventListener(&quot;focus&quot;, function(e) {<br>          e.target.select();<br>        });<br>        [userInput, passInput].forEach(input =&gt; {<br>          input.addEventListener(&quot;keydown&quot;, function(e) {<br>            if (e.key === &quot;Enter&quot;) {<br>              e.preventDefault();<br>              login();<br>            }<br>          });<br>        });<br>        document.getElementById(&#x27;go&#x27;).addEventListener(&#x27;click&#x27;, function(e) {<br>          e.preventDefault();<br>          login();<br>        });<br>      }<br>    &lt;/script&gt;</code>
+        <p class="timestamp" style="position: absolute; bottom: 0; right: 0; margin: 0; font-size:0.8rem; color:#555;">Posted on 2025-04-04 03:23:29 MDT</p>
+      </div>
+
+      <div class="textPost">
+        <p>I have finished with my temperature monitoring project. It uses a raspberry pi and 433mHz radio hygrometers to record and graph historic tempurature data at my cabin. The data packing was the most interesting part of this project for me. After recieving and validating the radio transmission through the GPIO pins, I pack each datapoint into 94 bits (timestamp, rawTemp, humidity, channel, batterySignal, etc...). These bits are stored in a binary file.</p>
+        <p>According to my calculations, (3x4x60x24x94 = 1,624,320 bits per day = 203,040 bytes per day = 145 years to fill 10GB of storage), I'll be able to record data forever. </p>
+      </div>
+      <div class="textPost">
+        <p>I finished a program to automate the naming of .mp3 files using file signature and acoustid to insert metadata into the tracks. I ran into some issues because of windows naming rules and how tracks are saved. I also ran into some issues retrieving the artists on each track properly, where i had to do some string cleaning and extra requests in some cases. The tracks now include album artwork, artist names, and other metadata. It would be interesting to develop an audio digester for all types of streaming services. The amount of error handling and modulization of micro-services would be more than anything I've attempted before.</p>
+      </div>
+      <div class="textPost">
+        <p>I made a few programs to test my VM router for DNS and NTP connections. I want a fast DNS cache on my local network.</p>
+        <code>import time
+import socket
+import subprocess
+
+dns_servers = [
+    {"name": "Comcast Primary", "ip": "75.75.75.75"},
+    {"name": "Comcast Secondary", "ip": "75.75.76.76"},
+    {"name": "Google Primary", "ip": "8.8.8.8"},
+    {"name": "Google Secondary", "ip": "8.8.4.4"},
+    {"name": "Cloudflare Primary", "ip": "1.1.1.1"},
+    {"name": "Cloudflare Secondary", "ip": "1.0.0.1"},
+    {"name": "OpenDNS Primary", "ip": "208.67.222.222"},
+    {"name": "OpenDNS Secondary", "ip": "208.67.220.220"},
+    {"name": "Comcast Denver", "ip": "216.148.227.68"},
+    {"name": "Comcast Denver Backup", "ip": "204.127.202.4"},
+]
+
+def ping_latency(server_ip):
+    try:
+        result = subprocess.run(["ping", "-n", "3", server_ip], capture_output=True, text=True)
+        lines = result.stdout.split("\n")
+        for line in lines:
+            if "Average" in line:
+                avg_latency = line.split("=")[-1].strip().replace("ms", "")
+                return float(avg_latency)
+    except Exception as e:
+        return None
+
+def dns_resolution_time(server_ip):
+    try:
+        start = time.time()
+        result = subprocess.run(["nslookup", "ffqq.gg", server_ip], capture_output=True, text=True)
+        end = time.time()
+        return (end - start) * 1000  # Convert to ms
+    except Exception as e:
+        return None
+
+def main():
+    print("DNS Latency and Resolution Test (Cache Bypassed)\n")
+    print("{:<25} {:<15} {:<15}".format("DNS Server", "Ping Latency (ms)", "DNS Query Time (ms)"))
+    print("-" * 60)
+    
+    for server in dns_servers:
+        ping_time = ping_latency(server["ip"])
+        dns_time = dns_resolution_time(server["ip"])
+        print("{:<25} {:<15} {:<15}".format(server["name"], f"{ping_time:.2f}" if ping_time else "N/A", f"{dns_time:.2f}" if dns_time else "N/A"))
+
+if __name__ == "__main__":
+    main()</code>
+
+        <code>import ntplib
+import socket
+
+# List of NTP servers to test.
+servers = [
+    {"name": "time-a-b.nist.gov", "address": "132.163.96.1"},
+    {"name": "time-b-b.nist.gov", "address": "132.163.96.2"},
+    {"name": "time-c-b.nist.gov", "address": "132.163.96.3"},
+    {"name": "time-d-b.nist.gov", "address": "132.163.96.4"},
+    # IPv6 servers: ntplib may not support IPv6 out-of-the-box.
+    {"name": "time-d-b.nist.gov (IPv6)", "address": "2610:20:6f96:96::4"},
+    {"name": "time-e-b.nist.gov", "address": "132.163.96.6"},
+    {"name": "time-e-b.nist.gov (IPv6)", "address": "2610:20:6f96:96::6"},
+    {"name": "time.nist.gov", "address": "time.nist.gov"},
+    {"name": "utcnist.colorado.edu", "address": "128.138.140.44"},
+    {"name": "utcnist2.colorado.edu", "address": "128.138.141.172"},
+    {"name": "utcnist3.colorado.edu", "address": "128.138.140.211"},
+    {"name": "0.pool.ntp.org", "address": "0.pool.ntp.org"}
+]
+
+def query_ntp(server_address):
+    client = ntplib.NTPClient()
+    try:
+        # The request sends an NTP packet and returns a response with several timing metrics.
+        response = client.request(server_address, version=3, timeout=5)
+        # response.delay is the round-trip delay in seconds.
+        # response.offset is the time difference between server and client.
+        return response.delay, response.offset
+    except Exception as e:
+        return None, f"Error: {e}"
+
+def main():
+    print("NTP Latency and Offset Testing:")
+    for server in servers:
+        address = server["address"]
+        # ntplib by default uses IPv4, so skip IPv6 addresses
+        if ":" in address:
+            print(f"{server['name']} ({address}): Skipped (IPv6 not supported by ntplib)")
+            continue
+        delay, result = query_ntp(address)
+        if delay is None:
+            print(f"{server['name']} ({address}): {result}")
+        else:
+            print(f"{server['name']} ({address}): Delay = {delay * 1000:.2f} ms, Offset = {result * 1000:.2f} ms")
+
+if __name__ == "__main__":
+    main()</code>
+      </div>
+
+      <div class="textPost">
+        <p>I made a program that compares mods for the creation of a modpack for the game Carrier Command 2. I also made a program that modifies the game executable.</p>
+        <p>exe-hex-mod.py:</p>
+        <code>import hashlib
+import struct
+import tkinter as tk
+from tkinter import ttk
+import copy
+
+fileToOpen = &quot;dedicated_server.exe&quot;
+
+filesToOpen = [&quot;dedicated_server.exe&quot;, &quot;carrier_command.exe&quot;]
+
+names = [&quot;Seal&quot;, &quot;Walrus&quot;, &quot;Bear&quot;, &quot;Mule&quot;, &quot;Albatross&quot;, &quot;Manta&quot;, &quot;Razorbill&quot;, &quot;Petrel&quot;, &quot;Barge&quot;, &quot;Main Gun&quot;,
+         &quot;Main Gun 2&quot;, &quot;20mm Chaingun&quot;, 'Rocket Pod', 'Virus Bots', 'CWIZ Turret', 'IR Missile Turret', 'Light Bomb',
+         'Medium Bomb', 'Heavy Bomb', 'IR Missile', 'Laser Missile', 'AA Missile', 'Torpedo', 'Noisemaker',
+         'Countermeasure', 'TV Missile', 'Observation Camera', 'Small Camera', 'Gimbal Camera', 'Actuated Camera',
+         'AWACS', 'Fuel Tank', 'Flare Launcher', 'Battle Cannon', 'Heavy Cannon', 'Ground Artillery Cannon',
+         'Ground Radar', 'Sonic Pulse Generator', 'Smoke Launcher (Stream)', 'Smoke Launcher (Explosive)', '30mm Ammo',
+         '40mm Ammo', 'Cruise Missile', 'Rocket', 'Flare', '20mm Ammo', '100mm Ammo', '120mm Ammo', '160mm Ammo',
+         'Fuel', 'Sonic Pulse Ammo', 'Smoke Ammo', 'CWIZ Needlefish', 'Torpedo Needlefish', '160mm Needlefish',
+         'Cruise Missile Needlefish', '30mm Land Turret', 'CWIZ Land Turret', 'Missile Land Turret', 'Deployable Droid',
+         '30mm Gimbal Turret']
+items = [
+    [&quot;icon_chassis_16_wheel_small&quot;, 1, 5, 10000, 500, 0x78, 1, 10, 0x139, 0x13a],
+    [&quot;icon_chassis_16_wheel_medium&quot;, 2, 5, 15000, 0x2ee, 0x96, 1, 10, 0x13b, 0x13c],
+    [&quot;icon_chassis_16_wheel_large&quot;, 3, 5, 20000, 1000, 0xb4, 1, 10, 0x13d, 0x13e],
+    [&quot;icon_chassis_16_wheel_mule&quot;, 0x3a, 5, 20000, 0x2ee, 0x96, 1, 10, 0x5e0, 0x5e1],
+    [&quot;icon_chassis_16_wing_small&quot;, 4, 6, 20000, 1000, 0x78, 1, 10, 0x13f, 0x140],
+    [&quot;icon_chassis_16_wing_large&quot;, 5, 6, 25000, 0x4e2, 0xb4, 1, 10, 0x141, 0x142],
+    [&quot;icon_chassis_16_rotor_small&quot;, 6, 6, 15000, 0x2ee, 0x78, 1, 10, 0x143, 0x144],
+    [&quot;icon_chassis_16_rotor_large&quot;, 7, 6, 20000, 1000, 0xb4, 1, 10, 0x145, 0x146],
+    [&quot;icon_chassis_16_barge&quot;, 8, 8, 20000, 1000, 0xb4, 1, 10, 0x147, 0x148],
+    [&quot;icon_attachment_16_turret_main_gun&quot;, 9, 3, 5000, 200, 0x78, 1, 5, 0x149, 0x14a],
+    [&quot;icon_attachment_16_turret_main_gun_2&quot;, 0x2f, 3, 5000, 0xfa, 0x78, 1, 5, 0x288, 0x14a],
+    [&quot;icon_attachment_16_air_chaingun&quot;, 10, 3, 5000, 200, 0x78, 1, 5, 0x14b, 0x14c],
+    [&quot;icon_attachment_16_rocket_pod&quot;, 0xb, 3, 5000, 0xfa, 0x78, 1, 5, 0x14d, 0x14e],
+    [&quot;icon_attachment_16_turret_robots&quot;, 0x32, 4, 5000, 200, 0x3c, 1, 5, 0x16d, 0x150],
+    [&quot;icon_attachment_16_turret_ciws&quot;, 0xc, 3, 5000, 0xfa, 0x78, 1, 5, 0x151, 0x152],
+    [&quot;icon_attachment_16_turret_missile&quot;, 0xd, 3, 5000, 0xfa, 0x78, 1, 5, 0x153, 0x154],
+    [&quot;icon_attachment_16_air_bomb_1&quot;, 0xe, 2, 500, 10, 0x14, 1, 2, 0x156, 0x155],
+    [&quot;icon_attachment_16_air_bomb_2&quot;, 0xf, 2, 1000, 0x19, 0x1e, 1, 2, 0x157, 0x155],
+    [&quot;icon_attachment_16_air_bomb_3&quot;, 0x10, 2, 2000, 0x32, 0x28, 1, 2, 0x158, 0x155],
+    [&quot;icon_attachment_16_air_missile_1&quot;, 0x11, 2, 1000, 0x19, 0x28, 1, 2, 0x15b, 0x47a],
+    [&quot;icon_attachment_16_air_missile_2&quot;, 0x12, 2, 1000, 0x19, 0x28, 1, 2, 0x15c, 0x47b],
+    [&quot;icon_attachment_16_air_missile_4&quot;, 0x13, 2, 1000, 0x19, 0x28, 1, 2, 0x15e, 0x47c],
+    [&quot;icon_attachment_16_air_torpedo&quot;, 0x25, 2, 1000, 0x32, 0x50, 1, 2, 0x20e, 0x55a],
+    [&quot;icon_attachment_16_air_torpedo_noisemaker&quot;, 0x27, 2, 1000, 0x32, 0x50, 1, 2, 0x211, 0x55b],
+    [&quot;icon_attachment_16_air_torpedo_decoy&quot;, 0x28, 2, 1000, 0x32, 0x50, 1, 2, 0x213, 0x55c],
+    [&quot;icon_attachment_16_air_missile_tv&quot;, 0x26, 2, 2000, 100, 0x3c, 1, 2, 0x20c, 0x20d],
+    [&quot;icon_attachment_16_camera_large&quot;, 0x14, 4, 5000, 0x32, 0x3c, 1, 5, 0x165, 0x166],
+    [&quot;icon_attachment_16_small_camera&quot;, 0x15, 4, 0x9c4, 0x32, 0x3c, 1, 5, 0x161, 0x162],
+    [&quot;icon_attachment_16_camera_aircraft&quot;, 0x16, 4, 5000, 0x32, 0x3c, 1, 5, 0x163, 0x164],
+    [&quot;icon_attachment_16_small_camera_obs&quot;, 0x17, 4, 5000, 0x32, 0x3c, 1, 5, 0x15f, 0x160],
+    [&quot;icon_attachment_16_air_radar&quot;, 0x18, 4, 8000, 500, 0xb4, 1, 5, 0x167, 0x168],
+    [&quot;icon_attachment_16_air_fuel&quot;, 0x19, 4, 5000, 0x32, 0x28, 1, 5, 0x169, 0x16a],
+    [&quot;icon_attachment_16_small_flare&quot;, 0x1a, 3, 5000, 100, 0x1e, 1, 5, 0x16b, 0x16c],
+    [&quot;icon_attachment_16_turret_main_battle_cannon&quot;, 0x1b, 3, 6000, 0x2ee, 0x78, 1, 5, 0x16f, 0x58b],
+    [&quot;icon_attachment_16_turret_main_heavy_cannon&quot;, 0x31, 3, 6000, 0x2ee, 0x78, 1, 5, 0x289, 0x170],
+    [&quot;icon_attachment_16_turret_artillery&quot;, 0x1c, 3, 6000, 0x2ee, 0x78, 1, 5, 0x171, 0x172],
+    [&quot;icon_attachment_16_radar_golfball&quot;, 0x29, 4, 8000, 0xfa, 0x78, 1, 5, 0x280, 0x55d],
+    [&quot;icon_attachment_16_sonic_pulse_generator&quot;, 0x2a, 4, 0x9c4, 0xfa, 0x3c, 1, 5, 0x281, 0x281],
+    [&quot;icon_attachment_16_smoke_launcher_stream&quot;, 0x2b, 4, 0x9c4, 0x32, 0x3c, 1, 5, 0x283, 0x283],
+    [&quot;icon_attachment_16_smoke_launcher_explosive&quot;, 0x2c, 4, 0x9c4, 0x32, 0x3c, 1, 5, 0x282, 0x282],
+    [&quot;icon_item_16_ammo_30mm&quot;, 0, 1, 1, 1, 2, 100, 1, 0x135, 0x136],
+    [&quot;icon_item_16_ammo_40mm&quot;, 0x30, 1, 1, 2, 3, 100, 1, 0x287, 0x136],
+    [&quot;icon_item_16_ammo_cruise_missile&quot;, 0x1d, 2, 2000, 100, 0x3c, 1, 1, 0x175, 0x176],
+    [&quot;icon_item_16_ammo_rocket&quot;, 0x1e, 2, 0x32, 10, 10, 1, 1, 0x177, 0x178],
+    [&quot;icon_item_16_ammo_flare&quot;, 0x1f, 1, 10, 1, 10, 10, 1, 0x179, 0x17a],
+    [&quot;icon_item_16_ammo_20mm&quot;, 0x20, 1, 1, 1, 2, 100, 2, 0x17b, 0x17c],
+    [&quot;icon_item_16_ammo_100mm&quot;, 0x21, 1, 1, 5, 10, 100, 2, 0x17d, 0x17e],
+    [&quot;icon_item_16_ammo_120mm&quot;, 0x22, 1, 1, 0x14, 0x14, 100, 3, 0x17f, 0x180],
+    [&quot;icon_item_16_ammo_160mm&quot;, 0x23, 1, 1, 0x32, 0x1e, 100, 3, 0x181, 0x182],
+    [&quot;icon_item_16_fuel_barrel&quot;, 0x24, 7, 10, 10, 0x14, 1, 5, 0x183, 0x184],
+    [&quot;icon_item_16_ammo_sonic_pulse&quot;, 0x2d, 1, 10, 0x32, 0x14, 1, 1, 0x285, 0x285],
+    [&quot;icon_item_16_ammo_smoke&quot;, 0x2e, 1, 10, 1, 10, 1, 1, 0x286, 0x286],
+    [&quot;icon_chassis_16_ship_light&quot;, 0x33, 0, 75000, 6000, 0xb4, 1, 10, 0x5b5, 0x5bc],
+    [&quot;icon_chassis_16_ship_light&quot;, 0x34, 0, 75000, 10000, 0xb4, 1, 10, 0x5b6, 0x5bd],
+    [&quot;icon_chassis_16_ship_light&quot;, 0x35, 0, 75000, 8000, 0xb4, 1, 10, 0x5b7, 0x5be],
+    [&quot;icon_chassis_16_ship_light&quot;, 0x36, 0, 75000, 12000, 0xb4, 1, 10, 0x5b8, 0x5bf],
+    [&quot;icon_chassis_16_land_turret&quot;, 0x37, 9, 10000, 1000, 0x3c, 1, 1, 0x5d0, 0x5d3],
+    [&quot;icon_chassis_16_land_turret&quot;, 0x38, 9, 10000, 0x4e2, 0x3c, 1, 1, 0x5d1, 0x5d4],
+    [&quot;icon_chassis_16_land_turret&quot;, 0x39, 9, 10000, 0x5dc, 0x3c, 1, 1, 0x5d2, 0x5d5],
+    [&quot;icon_attachment_16_deployable_droid&quot;, 0x3b, 4, 5000, 500, 0x3c, 1, 5, 0x5ee, 0x5ef],
+    [&quot;icon_attachment_16_turret_gimbal&quot;, 0x3c, 3, 5000, 400, 0x78, 1, 5, 0x5f9, 0x5fa],
+]
+
+
+item_dict = {}
+for name, item_data in zip(names, items):
+    item_dict[name] = item_data
+il2 = copy.deepcopy(item_dict)
+
+def cs256(a):
+    b = hashlib.sha256()
+    with open(a, &quot;rb&quot;) as f:
+        while c := f.read(8192):
+            b.update(c)
+    print(b.hexdigest())
+    return b.hexdigest()
+
+def fo(exe_path, pattern_bytes, start=0, end=-1):
+    offsets = []
+    with open(exe_path, 'rb') as exe_file:
+        exe_data = exe_file.read()
+    offset = exe_data.find(pattern_bytes, start, end)
+    while offset != -1:
+        offsets.append(offset)
+        offset = exe_data.find(pattern_bytes, offset + len(pattern_bytes), end)
+    return offsets
+
+hexDict = {}
+for name in item_dict:
+    out = &quot;&quot;
+    a = item_dict[name][:1:-1]
+    for h in a:
+        if h &gt;= 0x96:
+            packed_bytes = struct.pack(&quot;&lt;I&quot;, h)
+            out += &quot; 68 &quot;
+        else:
+            packed_bytes = struct.pack(&quot;&lt;B&quot;, h)
+            out += &quot; 6A &quot;
+        packed_str = ' '.join(format(byte, '02X') for byte in packed_bytes)
+        out += packed_str
+    hexDict[name] = out.strip()
+
+offsetDict = {}
+for name in hexDict:
+    offsets = fo(fileToOpen, bytes.fromhex(hexDict[name].replace(&quot; &quot;, &quot;&quot;)))
+    if len(offsets) != 1:
+        print(len(offsets), name, hexDict[name])
+    else:
+        offsetDict[name] = [offsets[0], [v for v in reversed(item_dict[name][1:])]]
+
+
+class ItemEditorApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title(&quot;Item Editor&quot;)
+
+        self.iv = tk.StringVar(value=&quot;Select Item&quot;)
+        self.idd = ttk.Combobox(root, textvariable=self.iv, values=names)
+        self.idd.grid(row=0, column=0, padx=10, pady=10)
+        self.idd.bind(&quot;&lt;&lt;ComboboxSelected&gt;&gt;&quot;, self.update_display)
+
+        ns = [&quot;Item ID&quot;, &quot;Type ID&quot;, &quot;Mass&quot;, &quot;Build Cost&quot;, &quot;Build Time&quot;, &quot;Barge Pull Size&quot;, &quot;Group ID&quot;, &quot;IDK&quot;, &quot;IDK also&quot;]
+        self.e = []
+
+        for y, n in enumerate(ns, start=1):
+            l = tk.Label(root, text=n)
+            l.grid(row=y, column=0, padx=10, pady=5, sticky=&quot;e&quot;)
+            ew = tk.Entry(root)
+            ew.grid(row=y, column=1, padx=10, pady=5)
+            self.e.append(ew)
+
+        self.fv = tk.StringVar(value=&quot;dedicated_server.exe&quot;)
+        self.fdd = ttk.Combobox(root, textvariable=self.fv, values=filesToOpen)
+        self.fdd.grid(row=len(ns) + 1, column=0, padx=10, pady=10)
+        self.fdd.bind(&quot;&lt;&lt;ComboboxSelected&gt;&gt;&quot;, self.offset_dict_generator)
+        self.save = tk.Button(root, text=&quot;Save File&quot;, command=self.save_file)
+        self.save.grid(row=len(ns) + 1, column=1, padx=10, pady=10)
+
+        self.cv = {}
+        self.li = None
+
+    def offset_dict_generator(self, event):
+        global offsetDict
+        global item_dict
+        offsetDict = {}
+
+        for name in hexDict:
+            offsets = fo(self.fv.get(), bytes.fromhex(hexDict[name].replace(&quot; &quot;, &quot;&quot;)))
+            if len(offsets) != 1:
+                print(len(offsets), name, hexDict[name])
+            else:
+                offsetDict[name] = [offsets[0], [v for v in reversed(item_dict[name][1:])]]
+
+    def update_display(self, event):
+        si = self.iv.get()
+        if not self.li:
+            self.li = si
+            for i, tx in enumerate(self.e):
+                tx.insert(0, str(item_dict[si][i+1]))  # Access the value directly
+        elif si in item_dict:
+            c = {}
+            for i, tx in enumerate(self.e, start=1):
+                es = tx.get()
+                tx.delete(0, tk.END)
+                tx.insert(0, str(item_dict[si][i]))  # Access the value directly
+                if es:
+                    e = int(es)
+                    if e != item_dict[self.li][i]:
+                        item_dict[self.li][i] = e
+                        c[self.li] = (i, e)
+            self.cv.update(c)
+        self.li = si
+
+    def save_file(self):
+        self.update_display(None)
+        fp =  self.fv.get()
+        nf = &quot;CC2_modded_server.exe&quot; if fp == &quot;dedicated_server.exe&quot; else &quot;CC2_modded_game.exe&quot;
+        eh = &quot;058fdb1a32950a4be9b22e22d95457b8a5fcc062748e714e8d27e85110458124&quot; if fp == &quot;dedicated_server.exe&quot; else &quot;37847c780814143036c3ddea29954ebc80a8d8a4edacd3a8a5bac00035a64f2a&quot;
+        xh = cs256(fp)
+        if xh != eh:
+            print(&quot;Hash check failed&quot;)
+            input(&quot;press enter to quit&quot;)
+            return
+
+        with open(fp, &quot;rb&quot;) as f:
+            ba = bytearray(f.read())
+        x = self.cv
+        for b in x:
+            value_to_insert = x[b][1]
+            startbyte = offsetDict[b][0]
+            reference = il2[b][x[b][0]]
+            endbyte = startbyte + len(hexDict[b].replace(&quot; &quot;,&quot;&quot;)) - 1
+            print(startbyte, endbyte)
+            searchTerm = struct.pack(&quot;&lt;I&quot;, reference)
+            print(b, searchTerm)
+            byte_offset = fo(fp, searchTerm, start=startbyte, end=endbyte)
+            print(f&quot;Byte offset: {byte_offset}&quot;)
+            byte_offset = byte_offset[0]
+
+            if reference &gt;= 150:
+                packed_value = struct.pack(&quot;&lt;I&quot;, value_to_insert)
+            else:
+                packed_value = struct.pack(&quot;&lt;B&quot;, value_to_insert)
+            ba[byte_offset:byte_offset + len(packed_value)] = packed_value
+        print(f&quot;overwriting {len(x)} changes to the file&quot;)
+        with open(nf, &quot;wb&quot;) as f:
+            f.write(ba)
+
+
+def main():
+    root = tk.Tk()
+    ItemEditorApp(root)
+    root.mainloop()
+
+
+if __name__ == &quot;__main__&quot;:
+    main()</code>
+        <p>mod-comparison.py:</p>
+        <code>import os
+import difflib
+from collections import defaultdict
+
+steamappsFolder = r'C:\Program Files (x86)\Steam\steamapps'
+carrier_command_data = r'\rom_0'
+
+def workshop(workshopid):
+    return os.path.join(steamappsFolder, fr'workshop\content\1489630\{workshopid}\content')
+
+mods = {
+    # Your mod entries here...
+    "IncreaseRadarRange": workshop("2849827250"),
+    "Lubricant": workshop("2980659880"),
+    "UIEnhancer": workshop("2761300794"),
+    "CallsignsForVehicles": workshop("2817920223"),
+    "SpecializedChassisV": workshop("2812565529"),
+    "Albatross AWACS": workshop("2891723169"),
+    "DynamicAirMap": workshop("3000126914"),
+    "RWR": workshop("2983661961"),
+    "HelmControl": workshop("2949343185"),
+    "CapitanControl": workshop("2824746567"),
+    "CarrierVLS": workshop("2985511922"),
+    "CaptUnicornMod": workshop("3018266301"),
+    "FlyableJets": workshop("2828095394"),
+    "BlueBridgeLight": workshop("2871231885")
+}
+
+base_folder = os.path.join(steamappsFolder, r'common\Carrier Command 2' + carrier_command_data)
+
+def compare_and_output(file1_path, file2_path):
+    with open(file1_path, 'r', encoding='utf-8') as file1:
+        file1_lines = file1.readlines()
+    with open(file2_path, 'r', encoding='utf-8') as file2:
+        file2_lines = file2.readlines()
+    diff = difflib.unified_diff(file1_lines, file2_lines, fromfile=file1_path, tofile=file2_path, n=2)
+    return list(diff)
+
+# To store changes by file, line number, and mod name
+changes_by_file_and_line = defaultdict(lambda: defaultdict(list))
+
+# Initialize a set to keep track of processed file paths
+processed_file_paths = {}
+
+for mod_name, mod_folder in mods.items():
+    for root, _, files in os.walk(mod_folder):
+        for file in files:
+            # Skip .txtr files and files in the "textures" folder
+            if (not file.lower().endswith(('.txtr', '.mesh'))) and 'textures' not in root.lower() and 'meshes' not in root.lower():
+                base_file_path = os.path.join(base_folder, os.path.relpath(os.path.join(root, file), mod_folder))
+                mod_file_path = os.path.join(root, file)
+                diff = compare_and_output(base_file_path, mod_file_path)
+                for line in diff:
+                    if line.startswith('@@'):
+                        line_info = line.split(' ')
+                        line_number = int(line_info[1][1:].split(',')[0])
+                    elif (line.startswith('-') or line.startswith('+')) and not (line.startswith('---') or line.startswith('+++')):
+                        changes_by_file_and_line[(base_file_path, line_number)][mod_name].append(line)
+                        if base_file_path not in processed_file_paths.keys():
+                            processed_file_paths[base_file_path] = []
+                        if mod_name not in processed_file_paths[base_file_path]:
+                            processed_file_paths[base_file_path].append(mod_name)
+
+
+with open('output3.txt', 'w') as outputFile2:
+    for file_path in processed_file_paths:
+        outputFile2.write(file_path.split(r'C:\Program Files (x86)\Steam\steamapps\common\Carrier Command 2\rom_0')[1][1:] + '\n')
+        mods_that_changed = ', '.join(processed_file_paths[file_path])
+        outputFile2.write(mods_that_changed)
+        outputFile2.write('\n\n')
+
+with open('output.txt', 'w') as outputFile:
+    for mod_name, mod_folder in mods.items():
+        print(mod_name)
+        outputFile.write(f"Differences between Base and {mod_name} {mod_folder}\n")
+        for root, _, files in os.walk(mod_folder):
+            for file in files:
+                if (not file.lower().endswith(('.txtr', '.mesh'))) and 'textures' not in root.lower() and 'meshes' not in root.lower():
+                    base_file_path = os.path.join(base_folder, os.path.relpath(os.path.join(root, file), mod_folder))
+                    mod_file_path = os.path.join(root, file)
+                    outputFile.write(f"File: {os.path.relpath(mod_file_path, mod_folder)}\n")
+                    for line in compare_and_output(base_file_path, mod_file_path):
+                        if line.startswith("@@"):
+                            outputFile.write('\n'+line)
+                        else:
+                            outputFile.write(line)
+                    outputFile.write('\n\n')
+
+print("done")
+
+file_changes = defaultdict(lambda: defaultdict(list))
+
+with open('output.txt', 'r') as f:
+    merge_changes = f.readlines()
+
+for line in merge_changes:
+    if (line.startswith('-') or line.startswith('+')) and not (line.startswith('---') or line.startswith('+++')):
+        file_changes[current_file][current_line].append(line)
+    elif line.startswith("File: "):
+        current_file = line.strip().split(' ')[1]
+    elif line.startswith('@@'):
+        current_line = abs(int(line.split(' ')[1].split(',')[0]))
+
+# Sort the diff headers by starting line number
+sorted_changes = {}
+for filepath, line_changes in file_changes.items():
+    sorted_lines = sorted(line_changes.keys())  # Sort line numbers
+    sorted_headers = [(line, line_changes[line]) for line in sorted_lines]
+    sorted_changes[filepath] = sorted_headers
+
+# Output the sorted diff headers
+out = ""
+out1 = ''
+for filepath, headers in sorted_changes.items():
+    out += filepath+'\n'
+    out1 += filepath + '\n'
+    for line_number, header in headers:
+        out += f'Line {line_number}\n'
+        out1 += f'Line {line_number}\n'
+        for line in header:
+            out += line
+            out1 += line[1:] if line[:1] == '+' else ''
+    out += '\n'
+    out1 += '\n'
+
+with open('output2.txt', 'w') as f:
+    f.write(out)
+
+with open('output1.txt', 'w') as f:
+    f.write(out1)</code>
+      </div>
+
+      <div class="textPost">
+        <p>I found some old code that I made many years ago to show off some of my python knowledge at the time.</p>
+        <p>GAME OF LIFE:</p>
+        <code>from tkinter import *
+from threading import Thread
+import random, time, ast
+
+global Results
+global running
+global StartL
+global TickCounter
+global totalButtons
+
+Results = []
+running = True
+
+
+class ChangingButton:
+    global totalButtons
+
+    def __init__(self):
+        # makes a list of all this classes
+        totalButtons.append(self)
+
+    def CreateB(self, x, y):
+        # makes button instance
+        self.b = Button(gameboard, width=2, command=self.changeColorOnClick, bg='blue')
+        self.b.grid(row=y, column=x)
+
+    def changeColorOnClick(self):
+        # Inverts the color
+        if self.b.config('bg')[-1] == 'blue':
+            self.b.config(bg='red')
+            StartL[int(self.b.grid_info()['row'])][int(self.b.grid_info()['column'])] = 1
+        else:
+            self.b.config(bg='blue')
+            StartL[int(self.b.grid_info()['row'])][int(self.b.grid_info()['column'])] = 0
+
+
+def UpdateFromL():
+    for self in totalButtons:
+        if StartL[int(self.b.grid_info()['row'])][int(self.b.grid_info()['column'])] == 1:
+            self.b.config(bg='red')
+        else:
+            self.b.config(bg='blue')
+    gameboard.update()
+    time.sleep((speed.get() - 100) / 1000)
+
+
+###~~~~~Options for before game starts~~~~~###
+def GenGameboard():
+    global StartL
+    global totalButtons
+    try:
+        for button in gameboard.winfo_children():
+            button.destroy()
+    except:
+        pass
+    StartL = [[0 for j in range(width.get())] for i in range(height.get())]
+    totalButtons = []
+    for i in range(width.get()):
+        for j in range(height.get()):
+            ChangingButton().CreateB(i, j)
+    randomizeGrid.config(state='normal')
+    begin.config(state='normal')
+    stop.config(state='disabled')
+
+
+def RandGrid():
+    global StartL
+    StartL = [[random.randrange(2) for j in range(width.get())] for i in
+              range(height.get())]  # Randomizes starting list
+    UpdateFromL()
+
+
+def Paste():
+    global StartL
+    tmp = ast.literal_eval(root.clipboard_get())
+    height.set(len(tmp))
+    width.set(len(tmp[0]))
+    GenGameboard()
+    StartL = tmp[:]
+    UpdateFromL()
+    time.sleep((speed.get()) / 1000)
+
+
+def Copy():
+    root.clipboard_clear()
+    root.clipboard_append(str(StartL))
+
+
+###~~~~~Game fuctions~~~~~###
+
+def Step(List):
+    global Results
+    start_time = time.time()
+    Ref_List = [[j for j in List[i]] for i in range(len(List))]
+    N_List = [[j for j in List[i]] for i in range(len(List))]
+    # Look at each cell #
+    for i in range(len(Ref_List)):
+        for j in range(len(Ref_List[i])):
+            # Look at neighbors of each cell #
+            Neighbors = 0
+            for k in range(-1, 2):
+                for l in range(-1, 2):
+                    if (k, l) != (0, 0) and i + k >= 0 and j + l >= 0:
+                        try:
+                            Neighbors += Ref_List[i + k][j + l]
+                        except:
+                            pass
+            ###VVVV GAME RULES VVVV###
+            if Ref_List[i][j] == 1 and Neighbors in [2, 3]:
+                N_List[i][j] = 1
+            elif Ref_List[i][j] == 0 and Neighbors == 3:
+                N_List[i][j] = 1
+            else:
+                N_List[i][j] = 0
+    return N_List
+
+
+def stop():
+    begin.config(state='normal')
+    stop.config(state='disabled')
+    global running
+    running = False
+
+
+def Start():
+    begin.config(state='disabled')
+    stop.config(state='normal')
+    global running
+    global StartL
+    running = True
+    while running == True:
+        StartL = Step(StartL)
+        UpdateFromL()
+
+
+root = Tk()
+
+# initilize gameboard
+gameboard = Frame(root)
+gameboard.pack(side="left")
+
+# initilize options panel
+options = Frame(root)
+options.pack(side='left')
+
+begin = Button(options, text='Start', width=15, command=Start, state='disabled')  # Start Game Button
+stop = Button(options, text='Stop', width=15, command=stop, state='disabled')  # Stop Game Button
+generate = Button(options, text='Generate\ngrid', width=15, command=GenGameboard)  # Generate Grid Button
+randomizeGrid = Button(options, text='Randomize!!', width=15, command=RandGrid,
+                        state='disabled')  # Randomize Grid Button
+# Width Slider
+Label(options, text='width:').grid(row=2, column=0)
+width = Scale(options, width=10, length=70, orient=HORIZONTAL, from_=5, to=50)
+# Height Slider
+Label(options, text='height:').grid(row=3, column=0)
+height = Scale(options, width=10, length=70, orient=HORIZONTAL, from_=5, to=50)
+# Speed Slider
+Label(options, text='speed per step\n(in ms)').grid(row=6, column=0)
+speed = Scale(options, width=10, length=70, orient=HORIZONTAL, from_=100, to=1000)
+# Load/Save
+PastL = Button(options, text='Load from\nClipboard', width=10, command=Paste)
+SavL = Button(options, text='Copy to\nClipboard', width=10, command=Copy)
+
+# GRID EVERYTHING
+begin.grid(row=0, column=0, columnspan=2)  # Start
+stop.grid(row=1, column=0, columnspan=2)  # End
+width.grid(row=2, column=1)  # Width Slider
+height.grid(row=3, column=1)  # height Slider
+generate.grid(row=4, column=0, columnspan=2)  # Gen. Grid
+randomizeGrid.grid(row=5, column=0, columnspan=2)  # Rand. Grid
+speed.grid(row=6, column=1)  # Speed Slider
+PastL.grid(row=7, column=0)  # Load button
+SavL.grid(row=7, column=1)  # Save button
+
+root.mainloop()</code>
+          <p>NIM:</p>
+          <code># if you cannot move, you lose. NIM Logic.
+# updated Nov 19 22
+# By Nolan Peet
+
+from random import randint
+from time import sleep
+from math import floor, log
+
+
+def dumb_step(balls, legal):
+    return randint(1, legal) if balls > 3 else 1
+
+
+def smart_step(balls, legal):
+    """ these are my MAGIC numbers. xₙ = 2xₙ₋₁ + 1, where x₁ = 2.
+        xₙ = 3(2ⁿ)-1 when n₁ = 0 is the way to represent that without referencing the last result.
+        thinking of doubling the last value is like saying 2^n.
+        3...-1 ensures that when n=0, your opponent is left with exactly 2 balls... idk
+        so, solving for int(n) where xₙ is balls: n = floor(log₂((balls+1)/3))
+          2xₙ₋₁+1:[2 ,5,11,23,47,95]
+            xₙ+1:[3, 6,12,24,48,96]
+            xₙ/3:[1, 2, 4, 8,16,32]
+        log2(xₙ):[0, 1, 2, 3, 4, 5]
+    magic_number = 3 × 2ᶠˡᵒᵒʳ⁽ˡᵒᵍ₂⁽⁽ᵇᵃˡˡˢ⁺¹⁾/³⁾⁾ - 1
+    OR if you think of 2ᶠˡᵒᵒʳ⁽ˡᵒᵍ₂⁽⁽ᵇᵃˡˡˢ⁺¹⁾/³⁾⁾ as a binary representation,
+    you're asking 'what is the index of the leading 1 in the binary form?', therefore,
+    len(bin(balls))-1-bin(balls).find('1') = floor(log((balls + 1) / 3, 2))"""
+    magic_number = 3 * 2 ** floor(log((balls + 1) / 3, 2)) - 1
+    if balls == 1:
+        print("...too easy...")
+        sleep(2)
+    return balls - magic_number if 0 < balls - magic_number <= legal else 1
+
+
+def player_step(balls, legal):
+    if balls != 1:
+        print("Your move.\n     There are", balls, "balls.")
+        while True:
+            # Repeats until the player picks a legal move
+            take = input("How many are you going to take?"+("(1)" if balls <= 3 else f"(1-{legal})")+"\n         ")
+            if take.isdigit() and 0 < int(take) <= legal:
+                return int(take)
+    else:
+        print("one remains.... and you SNATCH IT!")
+        sleep(2)
+        return 1
+
+
+def nim_game():
+    # All the parts come together.
+    input("This is a game, The rules are as follows:\n"
+          "Starting with a random number of balls between 20 and 100,\n"
+          "The goal is to grab the last ball!\n"
+          "You may grab any number of balls up to half the number of current balls (inclusive, rounding down).\n"
+          "GOOD LUCK AND HAVE FUN, GAMER.\n"
+          "Press Enter to continue!")
+
+    balls = randint(20, 100)
+    while True:
+        difficulty = input("Bot difficulty: Easy(0) or Hard(1)")
+        if difficulty.isdigit() and int(difficulty) in [0, 1]:
+            difficulty = int(difficulty)
+            break
+        elif difficulty.lower() in ['e', 'h', 'hard', 'easy']:
+            difficulty = 0 if difficulty.lower() in ['e', 'easy'] else 1
+            break
+    print("and here comes the coin flip....")
+    for i in range(3):
+        print(3-i)
+        sleep(1)
+    who_moves = randint(0, 1)
+    print("HEADS!!!" if who_moves else "TAILS.")
+    sleep(1)
+    print(f"Starting Game with {balls} balls.")
+    sleep(2)
+
+    while balls > 0:
+        # MAIN GAME LOOP
+        legal = balls // 2  # maximun amount of balls you can take within the game rules
+        if who_moves == 1:
+            # PLAYER MOVE
+            balls -= player_step(balls, legal)
+            who_moves = 0  # Bot's turn now
+        else:
+            # BOT MOVE
+            bot_move = smart_step(balls, legal) if difficulty == 1 else dumb_step(balls, legal)
+            balls -= bot_move
+            print("The bot moved. It took", bot_move, "balls.")
+            who_moves = 1  # User's turn now
+
+    # END OF GAME
+    if who_moves:
+        print("The bot won! :(")
+    else:
+        print("You won!! :)")
+    sleep(5)
+
+
+nim_game()  # run game</code>
+      </div>
+      <div id="footer">
+        <h2>Here are some domains I have:</h2>
+        <div class="urls">
+          <h3><b><a href="https://gfd.sh" target="_blank" rel="noopener noreferrer">https://gfd.sh</a> (AWS temp monitoring, this is my coolest website)</b></h3>
+          <h3><b> → <a href="https://gfd.sh/temp" target="_blank" rel="noopener noreferrer">https://gfd.sh/temp</a> Cabin Temps (AWS load-balanced)</b></h3>
+          <h3><b><a href="https://nolp.net" target="_blank" rel="noopener noreferrer">https://nolp.net</a> (self-hosted intranetwork with a few public endpoints, authenticated dashboard)</b></h3>
+          <h3><b> → <a href="https://cpu1.nolp.net/temp" target="_blank" rel="noopener noreferrer">https://cpu1.nolp.net/temp</a> Cabin Temps (self-hosted)</b></h3>
+          <h3><b><a href="https://nolanpeet.us" target="_blank" rel="noopener noreferrer">https://nolanpeet.us</a> (you are here)</b></h3>
+          <h3><b><a href="https://ffqq.gg" target="_blank" rel="noopener noreferrer">https://ffqq.gg</a> (for gaming, website endpoints hidden)</b></h3>
+          <h3><b><a href="https://nolanp.cc" target="_blank" rel="noopener noreferrer">nolanp.cc</a></b></h3>
+          <h3><b><a href="https://nolanp.link" target="_blank" rel="noopener noreferrer">nolanp.link</a></b></h3>
+          <h3><b><a href="https://nolanpeet.com" target="_blank" rel="noopener noreferrer">nolanpeet.com</a></b></h3>
+          <h3><b><a href="https://nolanpeet.download" target="_blank" rel="noopener noreferrer">nolanpeet.download</a></b></h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

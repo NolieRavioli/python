@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" content="Nolan Peet">
+        <meta name="description" content="nolanpeet.us - AWS RESTful framework. Powered by Python.">
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>About Me</title>
+        <style type="text/css">
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: "Times New Roman", serif;
+            }
+            h1 {
+              font-size: 3rem;
+              font-weight: 300;
+              margin: 0;
+              padding-top: 1rem;
+              text-align: center;
+            }
+            h2 {
+              font-weight: normal;
+              padding-left: 3rem;
+              margin: 0.3rem 0;
+            }
+            h3 {
+              padding-left: 1rem;
+            }
+            p {
+              margin: 0;
+              padding: 0 3rem;
+            }
+            i {
+              padding: 0;
+            }
+            code {
+              display: inline-block;
+              white-space: pre-wrap;
+              font-family: "Courier New", Courier, monospace;
+              border-radius: 0;
+              border: 1px solid #000;
+              margin-left: 1rem;
+              margin-top: 0.1rem;
+              margin-right: 1rem;
+              padding: 15px;
+            }
+            #eponymous {
+              background-color: #135d63;
+              color: white;
+              padding: 0 0;
+            }
+            .tabs {
+              display: inline-flex;
+              background-color: #dbdbdb;
+              margin-top: 0.5rem;
+              margin-left: 1rem;
+              margin-bottom: 0;
+            }
+            .tabs a {
+                font-size: 1.3rem;
+                font-family: "Courier New", Courier, monospace;
+                color: #0073bb;
+                text-decoration: underline;
+                font-weight: bold;
+                border: 1px solid #000;
+                padding: 5px;
+                margin-bottom: 0;
+            }
+            .tabs a:hover {
+              background-color: #b1b1b1bd;
+            }
+            #top {
+              background-color: #083270;
+              color: white;
+              text-align: left;
+              padding: 1rem 0;
+              
+            }
+            #bottom {
+              background-color: #d5dbdb;
+              padding: 0.01rem 0;
+            }
+            #footer {
+              background-color: #97cde25b;
+              padding-left:0.5rem;
+              padding-bottom:0.5rem;
+            }
+        .textPost {
+            display: block;
+            margin: 2rem;
+            border: 1px solid #000;
+            padding: 1rem;
+        }
+        .textPost p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 0.5rem;
+            padding-right: 10px;
+            padding-top: 0rem;
+        }
+        .list {
+            display: inline-block;
+            margin-left:2rem;
+            margin-top:1rem;
+            padding-right: 1rem;
+            padding-left: 0.5rem;
+            border-radius: 0px;
+            border: 2px solid #000;
+        }
+        .list ul {
+            list-style: circle;
+        }
+        .done {
+            text-decoration: line-through;
+        }
+        .urls {
+            font-family: "Courier New", Courier, monospace;
+        }
+        #login {
+            display: inline-block;
+            text-align: right;
+            font-family: "Courier New", Courier, monospace;
+            padding: 1rem;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="eponymous">
+        <h1>About</h1>
+        <h2 style="display: inline-block;">nolanpeet@gmail.com | Lakewood, CO</h2>
+        <div class="tabs">
+            <a href="https://nolanpeet.us">Home</a>
+            <a href="https://cpu1.nolp.net/temp" target="_blank" rel="noopener noreferrer">Tempurature Monitor</a>
+            <a href="https://nolanpeet.us/about">About</a>
+            <a href="https://nolanpeet.us/post">New Post</a>
+        </div>
+        </div>
+        <div id="top" class="section"><b>
+            <p>I'm Nolan Peet. I like to do stuff that is interesting</p>
+            <p>This project was pretty fun, its a very compact bit of code all hosted on AWS all for free.</p></b>
+        </div>
+        <div id="bottom" class="section">
+            <h3>I appreciate programming the frameworks and data structures for my projects. I have a lot of experience with building full stacks in Python, JavaScript, PHP, and basic AWS.</h3>
+            <!-- NEW ENTRIES HERE 
+            <div id="textPost">
+                <p></p>
+            </div> -->
+
+            
+            <div class="textPost" style="position: relative; padding-bottom: 1.2em;">
+              <p>I&#x27;m using AWS API Gateway to serve html with embedded JS through a REST api. The api uses AWS Lambda integrations written in python to run the logic for my webserver.This includes serving files from my self-hosted websites for a low-cost solution, or load-balancing with AWS mirror backups for a cloud-based backup.</p>
+              <p>AWS gives enough cloud compute time for free to run simple serverless web applications like this forever with 0 oversight. Combining Lambda automation scripts with self-hosted endpoints can help me distribute my network more securely and with greater availability through AWS proxies.</p>
+              <p><i>exerpt from ./lambda_function.py:</i></p>
+              <code>...<br>def lambda_handler(event, context):<br>    http_method = event.get(&quot;httpMethod&quot;, event.get(&quot;method&quot;, &quot;&quot;))<br>    if http_method == &quot;GET&quot;:<br>        # Process GET as before<br>        path = event[&quot;path&quot;]<br>        if path != &#x27;/&#x27;:<br>            path_parts = path.split(&#x27;/&#x27;)<br>            if path[0] == &#x27;/&#x27;:<br>                path_parts = path_parts[1:]<br>            file_path = os.path.join(os.path.dirname(__file__), &quot;www&quot;, *path_parts, &quot;index.html&quot;)<br>        else:<br>            file_path = os.path.join(os.path.dirname(__file__), &quot;www&quot;, &quot;index.html&quot;)<br>    <br>        try:<br>            with open(file_path, &quot;r&quot;) as f:<br>                html_content = f.read()<br>            return {<br>                &quot;statusCode&quot;: 200,<br>                &quot;headers&quot;: { &quot;Content-Type&quot;: &quot;text/html&quot; },<br>                &quot;body&quot;: html_content<br>            }<br>        except FileNotFoundError:<br>            return {<br>                &quot;statusCode&quot;: 404,<br>                &quot;headers&quot;: {&quot;Content-Type&quot;: &quot;text/plain&quot;},<br>                &quot;body&quot;: &quot;404 Not Found&quot;<br>            }<br>    elif http_method == &quot;POST&quot;:<br>    ...</code>
+              <p><i>more from my other site, gfd.sh - lambda_function.py:</i></p>
+              <code>def get_data():<br>    &quot;&quot;&quot;<br>    1) Try to get data from self-host http://cpu1.nolp.net/data<br>    2) If unsuccessful, fallback to S3<br>    &quot;&quot;&quot;<br>    return response(200, requests.get(&#x27;https://cpu1.nolp.net/data&#x27;).text)<br>    try:<br>        resp = requests.get(&#x27;https://cpu1.nolp.net/data&#x27;, timeout=2)<br>        if resp.status_code == 200:<br>            # Return that data<br>
+                <br>            return response(200, resp.text)  # or base64 if it&#x27;s binary<br>        else:<br>            # fallback to S3<br>            return get_data_from_s3()<br>    except requests.exceptions.RequestException:<br>        # fallback to S3<br>        return get_data_from_s3()</code>
+              <p>...</p>
+              <code>def lambda_handler(event, context):<br>    &quot;&quot;&quot;Entry point for API Gateway -&gt; Lambda integration.&quot;&quot;&quot;<br>    <br>    http_method = event.get(&#x27;httpMethod&#x27;, &#x27;&#x27;)<br>    headers = event.get(&#x27;headers&#x27;, {})<br>    # Route by HTTP method<br>    if http_method == &#x27;POST&#x27;:<br>        # Auth Check<br>        auth_header = headers.get(&#x27;Authorization&#x27;, &#x27;&#x27;)<br>        if not auth_header.startswith(&quot;Bearer &quot;):<br>            return response(401, &quot;Unauthorized&quot;)<br>        <br>        # Extract token from &#x27;Bearer XXXXXX&#x27;<br>        _, token_value = auth_header.split(&quot; &quot;)<br>        if token_value != PRE_SHARED_TOKEN:<br>            return response(401, &quot;Invalid token.&quot;)<br>        return post_data(event)<br>    elif http_method == &#x27;GET&#x27;:<br>        return get_data()<br>    else:<br>        return response(405, f&quot;Method {http_method} not allowed.&quot;)</code>
+                <p class="timestamp" style="position: absolute; bottom: 0; right: 0; margin: 0; font-size:0.8rem; color:#555;">Posted on 2025-04-04 03:48:07 MDT</p>
+            </div>
+            <div id="footer">
+                <h2>Here are some domains I have:</h2>
+                <div class="urls">
+                    <h3><b><a href="https://gfd.sh" target="_blank" rel="noopener noreferrer">https://gfd.sh</a> (AWS temp monitoring, this is my coolest website)</b></h3>
+                    <h3><b> → <a href="https://gfd.sh/temp" target="_blank" rel="noopener noreferrer">https://gfd.sh/temp</a> Cabin Temps (AWS load-balanced)</b></h3>
+                    <h3><b><a href="https://nolp.net" target="_blank" rel="noopener noreferrer">https://nolp.net</a> (self-hosted intranetwork with a few public endpoints, authenticated dashboard)</b></h3>
+                    <h3><b> → <a href="https://cpu1.nolp.net/temp" target="_blank" rel="noopener noreferrer">https://cpu1.nolp.net/temp</a> Cabin Temps (self-hosted)</b></h3>
+                    <h3><b><a href="https://nolanpeet.us" target="_blank" rel="noopener noreferrer">https://nolanpeet.us</a> (you are here)</b></h3>
+                    <h3><b><a href="https://ffqq.gg" target="_blank" rel="noopener noreferrer">https://ffqq.gg</a> (for gaming, website endpoints hidden)</b></h3>
+                    <h3><b><a href="https://nolanp.cc" target="_blank" rel="noopener noreferrer">nolanp.cc</a></b></h3>
+                    <h3><b><a href="https://nolanp.link" target="_blank" rel="noopener noreferrer">nolanp.link</a></b></h3>
+                    <h3><b><a href="https://nolanpeet.com" target="_blank" rel="noopener noreferrer">nolanpeet.com</a></b></h3>
+                    <h3><b><a href="https://nolanpeet.download" target="_blank" rel="noopener noreferrer">nolanpeet.download</a></b></h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

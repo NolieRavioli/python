@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Nolan Peet">
+    <meta name="description" content="nolanpeet.us - Login">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Login</title>
+    <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Times New Roman", serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #eponymous {
+        background-color: #135d63;
+        color: white;
+      }
+      #top {
+        background-color: #083270;
+        color: white;
+        text-align: left;
+      }
+      #bottom {
+        background-color: #d5dbdb;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      #footer {
+        background-color: #97cde25b;
+        flex: 0 0 auto;
+      }
+      .tabs {
+        display: inline-flex;
+        background-color: #dbdbdb;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+        margin-bottom: 0;
+      }
+      .tabs a {
+        font-size: 1.3rem;
+        font-family: "Courier New", Courier, monospace;
+        color: #0073bb;
+        text-decoration: underline;
+        font-weight: bold;
+        border: 1px solid #000;
+        padding: 5px;
+        margin-bottom: 0;
+      }
+      .tabs a:hover {
+        background-color: #b1b1b1bd;
+      }
+      h1 {
+        font-size: 3rem;
+        font-weight: 300;
+        margin: 0;
+        padding-top: 1rem;
+        text-align: center;
+      }
+      h2 {
+        font-weight: normal;
+        padding-left: 3rem;
+        margin: 0.3rem 0;
+      }
+      h3 {
+        padding-left: 1rem;
+      }
+      p {
+        margin: 0;
+        padding: 0.1rem 3rem;
+      }
+      .urls {
+        font-family: "Courier New", Courier, monospace;
+      }
+      #login {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      #post {
+        flex: 1;
+        width: 100%;
+        resize: none;
+        overflow-y: auto;
+        margin-bottom: 1rem;
+      }
+      .form-inputs {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="eponymous">
+      <h1>Login</h1>
+      <h2 style="display: inline-block;">nolanpeet@gmail.com | Lakewood, CO</h2>
+      <div class="tabs">
+        <a href="https://nolanpeet.us">Home</a>
+        <a href="https://cpu1.nolp.net/temp" target="_blank" rel="noopener noreferrer">Tempurature Monitor</a>
+        <a href="https://nolanpeet.us/about">About</a>
+        <a href="https://nolanpeet.us/post">New Post</a>
+      </div>
+    </div>
+    <div id="top" class="section">
+      <b>
+        <p>Authentication Required to proceed any further.</p>
+        <p>This area is for posting updates to my homepage.</p>
+      </b>
+    </div>
+    <div id="bottom" class="section">
+      <div id="login">
+        <textarea name="NewPost" id="post" rows="5" placeholder="[code][/code]   [list][*][*][/list]   [b][i][u][s] = bold, italic, underline, strikethrough"></textarea>
+        <div class="form-inputs">
+          <div>
+            Username: <input type="text" name="Username" id="user" placeholder="Username">
+          </div>
+          <div>
+            Password: <input type="password" name="Password" id="pass" placeholder="Password">
+          </div>
+          <button id="go">Submit</button>
+        </div>
+      </div>
+      <div id="footer">
+        <h2>Here are some domains I have:</h2>
+        <div class="urls">
+          <h3><b><a href="https://gfd.sh" target="_blank" rel="noopener noreferrer">https://gfd.sh</a> (AWS temp monitoring, this is my coolest website)</b></h3>
+          <h3><b> → <a href="https://gfd.sh/temp" target="_blank" rel="noopener noreferrer">https://gfd.sh/temp</a> Cabin Temps (AWS load-balanced)</b></h3>
+          <h3><b><a href="https://nolp.net" target="_blank" rel="noopener noreferrer">https://nolp.net</a> (self-hosted intranetwork with a few public endpoints, authenticated dashboard)</b></h3>
+          <h3><b> → <a href="https://cpu1.nolp.net/temp" target="_blank" rel="noopener noreferrer">https://cpu1.nolp.net/temp</a> Cabin Temps (self-hosted)</b></h3>
+          <h3><b><a href="https://nolanpeet.us" target="_blank" rel="noopener noreferrer">https://nolanpeet.us</a> (you are here)</b></h3>
+          <h3><b><a href="https://ffqq.gg" target="_blank" rel="noopener noreferrer">https://ffqq.gg</a> (for gaming, website endpoints hidden)</b></h3>
+          <h3><b><a href="https://nolanp.cc" target="_blank" rel="noopener noreferrer">nolanp.cc</a></b></h3>
+          <h3><b><a href="https://nolanp.link" target="_blank" rel="noopener noreferrer">nolanp.link</a></b></h3>
+          <h3><b><a href="https://nolanpeet.com" target="_blank" rel="noopener noreferrer">nolanpeet.com</a></b></h3>
+          <h3><b><a href="https://nolanpeet.download" target="_blank" rel="noopener noreferrer">nolanpeet.download</a></b></h3>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Save the original login form HTML to allow resetting later.
+      const originalLoginHTML = document.getElementById("login").innerHTML;
+    
+      function prettyPrintHTML(rawHtml) {
+        let indent = 0;
+        const indentSize = 2;
+        return rawHtml
+          .replace(/></g, '>\n<').split('\n')
+          .map(line => {
+            line = line.trim();
+            if (line.match(/^<\/\w/)) {
+              indent = Math.max(indent - indentSize, 0);
+            }
+            const result = ' '.repeat(indent) + line;
+            if (line.match(/^<\w[^>]*[^/]>$/)) {
+              indent += indentSize;
+            }
+            return result;
+          }).join('\n');
+      }
+    
+      // When username or password gets focus, select all text.
+      document.getElementById("user").addEventListener("focus", function(e) {
+        e.target.select();
+      });
+      document.getElementById("pass").addEventListener("focus", function(e) {
+        e.target.select();
+      });
+    
+      // When pressing Enter in username or password, trigger login()
+      ["user", "pass"].forEach(id => {
+        document.getElementById(id).addEventListener("keydown", function(e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            login();
+          }
+        });
+      });
+    
+      // Attach event listener to the Submit button
+      document.getElementById('go').addEventListener('click', function(e) {
+        e.preventDefault();
+        login();
+      });
+    
+      function login() {
+        const content  = document.getElementById('post').value;
+        const username = document.getElementById('user').value;
+        const password = document.getElementById('pass').value;
+    
+        fetch("https://nolanpeet.us/login/auth", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password, content })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+          }
+          return response.text();
+        })
+        .then(htmlString => {
+          // Pretty-print, then escape the HTML so it's displayed as code
+          const pretty = prettyPrintHTML(htmlString);
+          const escaped = pretty
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    
+          // Display the escaped raw HTML in a pre/code block along with a Reset button
+          document.getElementById("login").innerHTML = `<pre id="login"><code>${escaped}</code></pre><button id="resetBtn">Reset Form</button>`;
+    
+          // Add click listener to the reset button to restore the original form
+          document.getElementById("resetBtn").addEventListener("click", function() {
+            document.getElementById("login").innerHTML = originalLoginHTML;
+            // Reattach event listeners for focus, keydown, and click to the new inputs and button:
+            attachInputListeners();
+          });
+        })
+        .catch(error => {
+          console.error("Error during login:", error);
+        });
+      }
+    
+      // Function to reattach event listeners after resetting the form
+      function attachInputListeners() {
+        const userInput = document.getElementById("user");
+        const passInput = document.getElementById("pass");
+        userInput.addEventListener("focus", function(e) {
+          e.target.select();
+        });
+        passInput.addEventListener("focus", function(e) {
+          e.target.select();
+        });
+        [userInput, passInput].forEach(input => {
+          input.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              login();
+            }
+          });
+        });
+        document.getElementById('go').addEventListener('click', function(e) {
+          e.preventDefault();
+          login();
+        });
+      }
+    </script>
+  </body>
+</html>

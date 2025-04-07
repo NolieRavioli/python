@@ -6,7 +6,7 @@
   - [How to run](#how-to-run)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-    - [Installation](#troubleshooting)
+    - [Troubleshooting](#troubleshooting)
   - [Architecture Overview](#architecture-overview)
   - [Lambda Functions Detail](#lambda-functions-detail)
   - [Design Process](#frontend-implementation)
